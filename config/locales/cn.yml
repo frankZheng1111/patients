@@ -2,7 +2,7 @@ cn:
   patients:
     patients_title: "病患"
     patients: "病患"
-    medic_record: "治疗记录"
+    medic_record: "治疗记录编号"
     age: "年龄"
     full_name: "姓名"
     gender: "性别"

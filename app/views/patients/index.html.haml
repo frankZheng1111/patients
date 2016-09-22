@@ -12,9 +12,9 @@
       %th= t("patients.viewed_count")
   %tbody
     - @patients.each do |patient|
-      %td= patient.id
-      %td= "patient.full_name"
-      %td= "patient.age"
+      %td= patient.medic_record
+      %td= patient.full_name
+      %td= patient.age
       %td= "patient.gender"
       %td= "patient.status"
       %td= patient.location.try(:name)
