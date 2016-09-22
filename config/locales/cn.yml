@@ -7,6 +7,7 @@ cn:
     full_name: "姓名"
     gender: "性别"
     viewed_count: "被浏览次数"
+    status: "状态"
 
   locations:
     name: "位置地名"

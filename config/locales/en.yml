@@ -28,6 +28,7 @@ en:
     full_name: "full name"
     gender: "gender"
     viewed_count: "viewed count"
+    status: "status"
 
   locations:
     name: "location name"
