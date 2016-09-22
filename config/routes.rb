@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'patients#index'
+  root "patients#index"
+  post "set_locale", to: "base#change_locale"
 
   resources :patients
   resources :locations, only: [:show]

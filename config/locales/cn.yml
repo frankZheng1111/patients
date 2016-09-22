@@ -1,0 +1,23 @@
+cn:
+  patients:
+    patients_title: "病患"
+    patients: "病患"
+    medic_record: "治疗记录"
+    age: "年龄"
+    full_name: "姓名"
+    gender: "性别"
+    viewed_count: "被浏览次数"
+
+  locations:
+    name: "位置地名"
+    code: "区域代码"
+
+  actions:
+    delete: "删除"
+    submit: "提交"
+    create: "创建"
+    edit: "编辑"
+    view_location: "查看地区"
+
+  other:
+    add_a_new_patient: "添加一个新的病患记录"

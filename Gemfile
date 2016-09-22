@@ -32,6 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "twitter-bootstrap-rails"
 gem "haml"
+gem "rails-i18n"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -20,4 +20,25 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  patients:
+    patients_title: "Patients"
+    patients: "patients"
+    medic_record: "MR"
+    age: "age"
+    full_name: "full name"
+    gender: "gender"
+    viewed_count: "viewed count"
+
+  locations:
+    name: "location name"
+    code: "location code"
+
+  actions:
+    delete: "delete"
+    submit: "submit"
+    create: "create"
+    edit: "edit"
+    view_location: "view location"
+
+  other:
+    add_new_patient: "Add a new patient"
