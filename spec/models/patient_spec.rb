@@ -16,16 +16,16 @@ RSpec.describe Patient, type: :model do
     end
 
     it "should return patient's full name" do
-      @patient1.full_name.should === "c, a b"
+      expect(@patient1.full_name).to eql("c, a b")
     end
 
     it "should return patient's MR" do
-      @patient1.medic_record.should === "MR000222"
-      @patient2.medic_record.should === "MR1234567"
+      expect(@patient1.medic_record).to eql("MR000222")
+      expect(@patient2.medic_record).to eql("MR1234567")
     end
 
     it "should return patient's age" do
-       @patient1.age.should === 20
+      expect(@patient1.age).to eql(20)
     end
   end
 
@@ -43,11 +43,11 @@ RSpec.describe Patient, type: :model do
     end
 
     it "should add viewed_count" do
-      @patient1.viewed_count.should === 0
-      @patient1.is_viewed_detail!
-      @patient1.viewed_count.should === 1
-      @patient1.is_viewed_detail!(999999998)
-      @patient1.viewed_count.should === 999999999
+      expect(@patient1.viewed_count).to be(0)
+      expect { @patient1.is_viewed_detail! }.
+        to change(@patient1, :viewed_count).by(1)
+      expect { @patient1.is_viewed_detail!(999999998) }.
+        to change(@patient1, :viewed_count).by(999999998)
     end
   end
 end
