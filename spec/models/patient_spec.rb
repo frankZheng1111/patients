@@ -28,4 +28,26 @@ RSpec.describe Patient, type: :model do
        @patient1.age.should === 20
     end
   end
+
+  describe "About Patient CRUD methods" do
+    before do
+      @patient1 = Patient.create(
+        id: 222,
+        first_name: "a",
+        middle_name: "b",
+        last_name: "c",
+        date_of_birth: Time.now - 20.years,
+        gender: "male",
+        status: "initial"
+      )
+    end
+
+    it "should add viewed_count" do
+      @patient1.viewed_count.should === 0
+      @patient1.is_viewed_detail!
+      @patient1.viewed_count.should === 1
+      @patient1.is_viewed_detail!(999999998)
+      @patient1.viewed_count.should === 999999999
+    end
+  end
 end

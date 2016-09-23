@@ -13,6 +13,7 @@ class Patient < ActiveRecord::Base
   STATUS = [INITIAL, REFERRED, TREATMENT, CLOSED]
 
   MEDIC_RECORD_CODE_LENGTH = 6
+
   def full_name
     "#{last_name}, #{first_name} #{middle_name}"
   end
@@ -25,5 +26,10 @@ class Patient < ActiveRecord::Base
 
   def age
     ((Time.now - date_of_birth) / 1.years).to_i
+  end
+
+  def is_viewed_detail!(count = 1)
+    self.viewed_count += count
+    save!
   end
 end
