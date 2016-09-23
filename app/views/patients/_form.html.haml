@@ -1,0 +1,48 @@
+%table.table-bordered.table-striped.table-hover.show-list
+  %tbody
+    %tr
+      %td
+        = patient.label :first_name, t("activerecord.attributes.patient.first_name")
+      %td
+        = patient.text_field :first_name, class: "form-control"
+    %tr
+      %td
+        = patient.label :middle_name, t("activerecord.attributes.patient.middle_name")
+      %td
+        = patient.text_field :middle_name, class: "form-control"
+    %tr
+      %td
+        = patient.label :last_name, t("activerecord.attributes.patient.last_name")
+      %td
+        = patient.text_field :last_name, class: "form-control"
+    %tr
+      %td
+        = patient.label :date_of_birth, t("activerecord.attributes.patient.date_of_birth")
+      %td
+        = patient.text_field :date_of_birth, class: "form-control datepicker"
+    %tr
+      %td
+        = patient.label :gender, t("activerecord.attributes.patient.gender")
+      %td
+        = patient.collection_radio_buttons :gender,
+          Patient::GENDERS.map { |gender| [gender, t("patients.#{gender}")] },
+          :first, :last, {checked: "not_available"}, class: "radio-btn"
+    %tr
+      %td
+        = patient.label :location_id, t("activerecord.attributes.patient.location_id")
+      %td
+        = patient.select :location_id, options_from_collection_for_select(Location.all, 'id', 'name')
+    %tr
+      %td
+        = patient.label :status, t("activerecord.attributes.patient.status")
+      %td
+        = patient.select :status,
+          options_for_select(Patient::STATUS.map { |status| [t("patients.#{status}"), status] }),
+          {}, class: "form_control"
+
+:javascript
+  $(document).ready(function(){
+    $('.datepicker').datepicker({
+      format: "yyyy-mm-dd"
+    });
+  });
