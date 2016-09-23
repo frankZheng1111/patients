@@ -1,0 +1,6 @@
+.row
+  .col-lg-10.col-lg-offset-1
+    = form_for @patient, url: patients_path do |patient|
+      = render partial: 'form', locals: {patient: patient}
+      = link_to t("actions.back_to_index"), patients_path, class: "btn btn-success"
+      = patient.submit t("actions.submit") , class: "btn btn-info"
