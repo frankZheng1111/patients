@@ -1,17 +1,37 @@
 cn:
+  activerecord:
+    attributes:
+      patient:
+        first_name: "名"
+        middle_name: "中间名"
+        last_name: "姓"
+        date_of_birth: "出生日期"
+        gender: "性别"
+        viewed_count: "被浏览次数"
+        status: "状态"
+        location_id: "地区位置"
+
+      location:
+        name: "位置地名"
+        code: "区域代码"
+
   patients:
     patients_title: "病患"
     patients: "病患"
     medic_record: "治疗记录编号"
     age: "年龄"
     full_name: "姓名"
-    gender: "性别"
-    viewed_count: "被浏览次数"
-    status: "状态"
+    male: "男"
+    female: "女"
+    not_available: "不提供"
+    initial: "初始化"
+    referred: "转院"
+    treatment: "治疗"
+    closed: "关闭"
 
   locations:
     name: "位置地名"
-    code: "区域代码"
+    code: "区域编码"
 
   actions:
     delete: "删除"
@@ -19,6 +39,7 @@ cn:
     create: "创建"
     edit: "编辑"
     view_location: "查看地区"
+    back_to_index: "返回首页"
 
   other:
     add_a_new_patient: "添加一个新的病患记录"

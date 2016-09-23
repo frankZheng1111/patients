@@ -1,6 +1,17 @@
 class Patient < ActiveRecord::Base
   belongs_to :location
 
+  MALE = "male"
+  FEMALE = "female"
+  NOT_AVAILABLE = "not_available"
+  GENDERS = [MALE, FEMALE, NOT_AVAILABLE]
+
+  INITIAL = "initial"
+  REFERRED = "referred"
+  TREATMENT = "treatment"
+  CLOSED = "closed"
+  STATUS = [INITIAL, REFERRED, TREATMENT, CLOSED]
+
   MEDIC_RECORD_CODE_LENGTH = 6
   def full_name
     "#{last_name}, #{first_name} #{middle_name}"

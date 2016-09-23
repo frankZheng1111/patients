@@ -20,15 +20,35 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    attributes:
+      patient:
+        first_name: "first name"
+        middle_name: "middle name"
+        last_name: "last name"
+        date_of_birth: "date of birth"
+        gender: "gender"
+        viewed_count: "viewed_count"
+        status: "status"
+        location_id: "location"
+
+      location:
+        name: "name"
+        code: "code"
+
   patients:
     patients_title: "Patients"
     patients: "patients"
     medic_record: "MR"
     age: "age"
     full_name: "full name"
-    gender: "gender"
-    viewed_count: "viewed count"
-    status: "status"
+    male: "male"
+    female: "female"
+    not_available: "not available"
+    initial: "initial"
+    referred: "referred"
+    treatment: "treatment"
+    closed: "closed"
 
   locations:
     name: "location name"
@@ -40,6 +60,7 @@ en:
     create: "create"
     edit: "edit"
     view_location: "view location"
+    back_to_index: "back to index"
 
   other:
     add_new_patient: "Add a new patient"
