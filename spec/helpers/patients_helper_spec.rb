@@ -11,5 +11,15 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe PatientsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "it should judge whether to show specific col" do
+    it "should to show view detail" do
+      expect(can_view_detail?("patients", "index")).to eql(true)
+      expect(can_view_detail?("patients", "show")).to eql(false)
+    end
+
+    it "should to show delete button" do
+      expect(can_delete_patient?("patients", "index")).to eql(true)
+      expect(can_delete_patient?("patients", "show")).to eql(true)
+    end
+  end
 end

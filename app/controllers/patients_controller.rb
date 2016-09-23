@@ -1,8 +1,8 @@
 class PatientsController < BaseController
-  before_action :find_patient, only: [:show]
+  before_action :find_patient, only: [:show, :destroy]
 
   def index
-    @patients = Patient.all
+    @patients = Patient.not_deleted
   end
 
   def new
@@ -17,6 +17,12 @@ class PatientsController < BaseController
 
   def show
     @patient.is_viewed_detail!
+  end
+
+  def destroy
+    @patient.delete_patient!
+    flash[:notice] = t("other.delete_success")
+    redirect_to patients_path
   end
 
   private

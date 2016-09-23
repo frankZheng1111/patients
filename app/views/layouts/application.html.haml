@@ -9,12 +9,19 @@
   = csrf_meta_tags
   %body
     .container
-      - if session[:locale] != LOCALE_CHINESE
-        = button_to "切换为中文", set_locale_path(locale: LOCALE_CHINESE),
-          class: "btn btn-default", style: "float:left"
-      - if  session[:locale] != LOCALE_ENGLISH
-        = button_to "Use English",set_locale_path(locale: LOCALE_ENGLISH),
-          class: "btn btn-default", style: "float:left"
-      %br
-      = yield
+      .row
+        %br
+        - if session[:locale] != LOCALE_CHINESE
+          = button_to "切换为中文", set_locale_path(locale: LOCALE_CHINESE),
+            class: "btn btn-default", style: "float:left"
+        - if  session[:locale] != LOCALE_ENGLISH
+          = button_to "Use English",set_locale_path(locale: LOCALE_ENGLISH),
+            class: "btn btn-default", style: "float:left"
+      .row
+        .notice#notice{style: "color: green"}
+          = notice
+        .notice#alert{style: "color: red"}
+          = alert
+      .row
+        = yield
 

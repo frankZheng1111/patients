@@ -6,5 +6,8 @@
   %td= t("patients.#{patient.status}")
   %td= patient.location.try(:name)
   %td= patient.viewed_count
-  - if "patients" == params[:controller] && "index" == params[:action]
+  - if can_view_detail?(params[:controller], params[:action])
     %td= link_to t("actions.view_detail"), patient_path(patient)
+  - if can_delete_patient?(params[:controller], params[:action])
+    %td= button_to t("actions.delete"), patient_path(patient), method: :delete,
+      class: "btn btn-danger", data: { confirm: t("other.are_you_sure") }

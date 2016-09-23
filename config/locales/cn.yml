@@ -44,3 +44,5 @@ cn:
 
   other:
     add_a_new_patient: "添加一个新的病患记录"
+    are_you_sure: "你确定?"
+    delete_success: "删除成功"
