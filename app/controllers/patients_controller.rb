@@ -42,6 +42,9 @@ class PatientsController < BaseController
       :date_of_birth
     )
     patient_attributes[:date_of_birth] = Time.parse(patient_attributes[:date_of_birth])
+    [:first_name, :middle_name, :last_name].map do |name|
+      patient_attributes[name].strip!
+    end
     patient_attributes
   end
 end
