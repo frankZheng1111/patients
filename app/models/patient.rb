@@ -14,6 +14,10 @@ class Patient < ActiveRecord::Base
 
   MEDIC_RECORD_CODE_LENGTH = 6
 
+  scope :not_deleted, -> {
+    where.not(is_deleted: true)
+  }
+
   def full_name
     "#{last_name}, #{first_name} #{middle_name}"
   end
@@ -30,6 +34,11 @@ class Patient < ActiveRecord::Base
 
   def is_viewed_detail!(count = 1)
     self.viewed_count += count
+    save!
+  end
+
+  def delete_patient!
+    self.is_deleted = true
     save!
   end
 end

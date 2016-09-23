@@ -42,6 +42,11 @@ RSpec.describe Patient, type: :model do
       )
     end
 
+    it "should set patient is deleted" do
+      @patient1.delete_patient!
+      expect(@patient1.is_deleted).to eql(true)
+    end
+
     it "should add viewed_count" do
       expect(@patient1.viewed_count).to be(0)
       expect { @patient1.is_viewed_detail! }.
@@ -51,3 +56,4 @@ RSpec.describe Patient, type: :model do
     end
   end
 end
+
