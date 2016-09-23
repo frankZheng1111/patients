@@ -59,6 +59,7 @@ en:
     submit: "submit"
     create: "create"
     edit: "edit"
+    view_detail: "view detail"
     view_location: "view location"
     back_to_index: "back to index"
 

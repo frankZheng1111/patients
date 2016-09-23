@@ -1,0 +1,10 @@
+%tr
+  %td= patient.medic_record
+  %td= patient.full_name
+  %td= patient.age
+  %td= t("patients.#{patient.gender}")
+  %td= t("patients.#{patient.status}")
+  %td= patient.location.try(:name)
+  %td= patient.viewed_count
+  - if "patients" == params[:controller] && "index" == params[:action]
+    %td= link_to t("actions.view_detail"), patient_path(patient)

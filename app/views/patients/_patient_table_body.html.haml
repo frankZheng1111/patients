@@ -1,0 +1,3 @@
+%tbody
+  - patients.each do |patient|
+    = render partial: "patient_detail_row", locals: { patient: patient }

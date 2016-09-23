@@ -39,6 +39,7 @@ cn:
     create: "创建"
     edit: "编辑"
     view_location: "查看地区"
+    view_detail: "查看细节"
     back_to_index: "返回首页"
 
   other:

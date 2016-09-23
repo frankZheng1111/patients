@@ -1,0 +1,7 @@
+%h1
+  = @patient.full_name
+%table.table-bordered.table-striped.table-hover.patients-list.show-list
+  = render partial: "patient_table_head"
+  %tbody
+    = render partial: "patient_detail_row", locals: { patient: @patient }
+= link_to t("actions.back_to_index"), patients_path, class: "btn btn-success"

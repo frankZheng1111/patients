@@ -3,22 +3,5 @@
 %h4
   = link_to t("other.add_a_new_patient"), new_patient_path
 %table.table-bordered.table-striped.table-hover.patients-list.show-list
-  %thead
-    %tr
-      %th= t("patients.medic_record")
-      %th= t("patients.full_name")
-      %th= t("patients.age")
-      %th= t("activerecord.attributes.patient.gender")
-      %th= t("activerecord.attributes.patient.status")
-      %th= t("locations.name")
-      %th= t("activerecord.attributes.patient.viewed_count")
-  %tbody
-    - @patients.each do |patient|
-      %tr
-        %td= patient.medic_record
-        %td= patient.full_name
-        %td= patient.age
-        %td= t("patients.#{patient.gender}")
-        %td= t("patients.#{patient.status}")
-        %td= patient.location.try(:name)
-        %td= patient.viewed_count
+  = render partial: "patient_table_head"
+  = render partial: "patient_table_body", locals: { patients: @patients }
