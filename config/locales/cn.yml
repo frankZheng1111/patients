@@ -24,7 +24,7 @@ cn:
     male: "男"
     female: "女"
     not_available: "不提供"
-    initial: "初始化"
+    initial: "初始状态"
     referred: "转院"
     treatment: "治疗"
     closed: "关闭"
