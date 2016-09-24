@@ -41,6 +41,7 @@ class Patient < ActiveRecord::Base
   end
 
   def age
+    return unless date_of_birth.present?
     ((Time.now - date_of_birth.to_time) / 1.years).to_i
   end
 

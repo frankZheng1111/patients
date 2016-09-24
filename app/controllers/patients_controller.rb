@@ -53,7 +53,9 @@ class PatientsController < BaseController
       :location_id,
       :date_of_birth
     )
-    patient_attributes[:date_of_birth] = Time.parse(patient_attributes[:date_of_birth])
+    if patient_attributes[:date_of_birth].present?
+      patient_attributes[:date_of_birth] = Time.parse(patient_attributes[:date_of_birth])
+    end
     [:first_name, :middle_name, :last_name].map do |name|
       patient_attributes[name].strip!
     end
