@@ -12,8 +12,7 @@ class PatientsController < BaseController
 
   def create
     patient_attributes = patient_params
-    @patient = Patient.new(patient_attributes)
-    @patient.save!
+    @patient = Patient.create!(patient_attributes)
     redirect_to patient_path(@patient)
   end
 
@@ -23,8 +22,7 @@ class PatientsController < BaseController
   def update
     puts params
     patient_attributes = patient_params
-    @patient.assign_attributes(patient_attributes)
-    @patient.save!
+    @patient.update!(patient_attributes)
     redirect_to patient_path(@patient)
   end
 

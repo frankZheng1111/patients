@@ -47,3 +47,4 @@
     add_a_new_patient: "添加一个新的病患记录"
     are_you_sure: "你确定?"
     delete_success: "删除成功"
+    error_message: "抱歉，可能出现些异常，请联系管理员。"
