@@ -30,16 +30,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-gem "twitter-bootstrap-rails"
-gem "haml"
-gem "rails-i18n"
+gem 'twitter-bootstrap-rails'
+gem 'haml'
+gem 'rails-i18n'
 gem 'bootstrap-datepicker-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem "rspec-rails"
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'byebug'
 end
 

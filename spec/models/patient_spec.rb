@@ -3,16 +3,8 @@ require 'rails_helper'
 RSpec.describe Patient, type: :model do
   describe "About Dynamic Properties" do
     before do
-      @patient1 = Patient.new(
-        id: 222,
-        first_name: "a",
-        middle_name: "b",
-        last_name: "c",
-        date_of_birth: Time.now - 20.years,
-        gender: "male",
-        status: "initial"
-      )
-      @patient2 = Patient.new(id: 1234567)
+      @patient1 = build(:patient)
+      @patient2 = build(:patient, id: 1234567)
     end
 
     it "should return patient's full name" do
@@ -31,15 +23,7 @@ RSpec.describe Patient, type: :model do
 
   describe "About Patient CRUD methods" do
     before do
-      @patient1 = Patient.create(
-        id: 222,
-        first_name: "a",
-        middle_name: "b",
-        last_name: "c",
-        date_of_birth: Time.now - 20.years,
-        gender: "male",
-        status: "initial"
-      )
+      @patient1 = create(:patient)
     end
 
     it "should set patient is deleted" do
