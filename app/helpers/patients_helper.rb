@@ -1,6 +1,6 @@
 module PatientsHelper
   def can_view_detail? (controller, action)
-    "patients" == controller && "index" == action
+    "patients" != controller || "show" != action
   end
 
   def can_delete_patient?(controller, action)
