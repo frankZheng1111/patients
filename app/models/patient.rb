@@ -10,9 +10,21 @@ class Patient < ActiveRecord::Base
   REFERRED = "referred"
   TREATMENT = "treatment"
   CLOSED = "closed"
-  STATUS = [INITIAL, REFERRED, TREATMENT, CLOSED]
+  STATUSES = [INITIAL, REFERRED, TREATMENT, CLOSED]
 
   MEDIC_RECORD_CODE_LENGTH = 6
+
+  validates :first_name, presence: true,
+                         length: { maximum: 30 }
+  validates :last_name, presence: true,
+                        length: { maximum: 30 }
+  validates :status, presence: true,
+                     inclusion: { in: STATUSES }
+  validates_length_of :middle_name, maximum: 10
+  validates_inclusion_of :gender, in: GENDERS
+  validates_presence_of :location_id
+
+  after_initialize :set_default_values
 
   scope :not_deleted, -> {
     where.not(is_deleted: true)
@@ -40,5 +52,11 @@ class Patient < ActiveRecord::Base
   def delete_patient!
     self.is_deleted = true
     save!
+  end
+
+  private
+
+  def set_default_values
+    self.gender ||= NOT_AVAILABLE
   end
 end

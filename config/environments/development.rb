@@ -37,7 +37,9 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.after_initialize do
-    load "#{Rails.root}/db/seeds.rb"
+    if ActiveRecord::Base.connection.table_exists? 'locations'
+      load "#{Rails.root}/db/seeds.rb"
+    end
   end
 
   # Raises error for missing translations

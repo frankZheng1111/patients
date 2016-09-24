@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20160922045435) do
     t.string   "first_name",                    null: false
     t.string   "middle_name"
     t.string   "last_name",                     null: false
-    t.date     "date_of_birth",                 null: false
-    t.string   "gender",                        null: false
+    t.date     "date_of_birth"
+    t.string   "gender"
     t.string   "status",                        null: false
-    t.integer  "location_id"
+    t.integer  "location_id",                   null: false
     t.integer  "viewed_count",  default: 0,     null: false
     t.boolean  "is_deleted",    default: false, null: false
     t.datetime "created_at",                    null: false

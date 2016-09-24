@@ -37,7 +37,7 @@
         = patient.label :status, t("activerecord.attributes.patient.status")
       %td
         = patient.select :status,
-          options_for_select(Patient::STATUS.map { |status| [t("patients.#{status}"), status] }),
+          options_for_select(Patient::STATUSES.map { |status| [t("patients.#{status}"), status] }),
           {}, class: "form_control"
 
 :javascript
