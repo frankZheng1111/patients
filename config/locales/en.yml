@@ -55,6 +55,7 @@ en:
     code: "location code"
 
   actions:
+    available_actions: "available actions"
     delete: "delete"
     submit: "submit"
     create: "create"

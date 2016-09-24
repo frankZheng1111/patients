@@ -34,6 +34,7 @@
     code: "区域编码"
 
   actions:
+    available_actions: "可用操作"
     delete: "删除"
     submit: "提交"
     create: "创建"
