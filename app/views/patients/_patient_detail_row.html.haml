@@ -8,6 +8,7 @@
   %td= patient.viewed_count
   - if can_view_detail?(params[:controller], params[:action])
     %td= link_to t("actions.view_detail"), patient_path(patient)
+  %td= link_to t("actions.edit"), edit_patient_path(patient), class: "btn btn-info"
   - if can_delete_patient?(params[:controller], params[:action])
     %td= button_to t("actions.delete"), patient_path(patient), method: :delete,
       class: "btn btn-danger", data: { confirm: t("other.are_you_sure") }

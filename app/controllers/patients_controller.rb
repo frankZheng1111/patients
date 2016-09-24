@@ -1,5 +1,5 @@
 class PatientsController < BaseController
-  before_action :find_patient, only: [:show, :destroy]
+  before_action :find_patient, only: [:show, :destroy, :edit, :update]
 
   def index
     @patients = Patient.not_deleted
@@ -11,8 +11,20 @@ class PatientsController < BaseController
 
   def create
     patient_attributes = patient_params
-    patient = Patient.create!(patient_attributes)
-    redirect_to patient_path(patient)
+    @patient = Patient.new(patient_attributes)
+    @patient.save!
+    redirect_to patient_path(@patient)
+  end
+
+  def edit
+  end
+
+  def update
+    puts params
+    patient_attributes = patient_params
+    @patient.assign_attributes(patient_attributes)
+    @patient.save!
+    redirect_to patient_path(@patient)
   end
 
   def show
