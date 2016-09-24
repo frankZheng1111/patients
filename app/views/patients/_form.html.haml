@@ -44,6 +44,7 @@
   $(document).ready(function(){
     $('.datepicker').datepicker({
       format: "yyyy-mm-dd",
-      endDate: '0'
+      endDate: '0',
+      language: "#{session[:locale] || LOCALE_CHINESE }"
     });
   });
