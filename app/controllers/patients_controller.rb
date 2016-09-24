@@ -1,4 +1,5 @@
 class PatientsController < BaseController
+  before_action :get_prev, only: [:show, :create, :update]
   before_action :find_patient, only: [:show, :destroy, :edit, :update]
 
   def index
@@ -28,7 +29,8 @@ class PatientsController < BaseController
   end
 
   def show
-    @patient.is_viewed_detail!
+    # 切换中英文不计入浏览次数
+    @patient.is_viewed_detail! unless "show" == @prev[:action] && "patients" == @prev[:controller]
   end
 
   def destroy
@@ -41,6 +43,10 @@ class PatientsController < BaseController
 
   def find_patient
     @patient = Patient.find(params[:id])
+  end
+
+  def get_prev
+    @prev = Rails.application.routes.recognize_path(request.referrer)
   end
 
   def patient_params
