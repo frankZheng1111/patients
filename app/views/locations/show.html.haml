@@ -1,0 +1,13 @@
+%h1
+  = @location.name
+%table.table-bordered.table-striped.table-hover.patients-list.show-list
+  = render partial: "location_table_head"
+  %tbody
+    = render partial: "location_detail_row", locals: { location: @location }
+%br
+%h3
+  = t("patients.patients_title")
+%table.table-bordered.table-striped.table-hover.patients-list.show-list
+  = render partial: "/patients/patient_table_head"
+  = render partial: "/patients/patient_table_body", locals: { patients: @patients }
+= link_to t("actions.back_to_index"), patients_path, class: "btn btn-success"

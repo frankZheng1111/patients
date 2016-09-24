@@ -4,7 +4,7 @@
   %td= patient.age
   %td= t("patients.#{patient.gender}")
   %td= t("patients.#{patient.status}")
-  %td= patient.location.try(:name)
+  %td= link_to patient.location.try(:name), location_path(id: patient.location_id)
   %td= patient.viewed_count
   - if can_view_detail?(params[:controller], params[:action])
     %td= link_to t("actions.view_detail"), patient_path(patient)
