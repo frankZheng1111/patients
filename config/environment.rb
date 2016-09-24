@@ -5,4 +5,4 @@ require File.expand_path('../application', __FILE__)
 Rails.application.initialize!
 
 LOCALE_ENGLISH = "en"
-LOCALE_CHINESE = "cn"
+LOCALE_CHINESE = "zh-CN"
