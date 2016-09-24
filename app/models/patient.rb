@@ -29,7 +29,7 @@ class Patient < ActiveRecord::Base
   end
 
   def age
-    ((Time.now - date_of_birth) / 1.years).to_i
+    ((Time.now - date_of_birth.to_time) / 1.years).to_i
   end
 
   def is_viewed_detail!(count = 1)
