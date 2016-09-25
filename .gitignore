@@ -12,6 +12,7 @@
 /db/*.sqlite3-journal
 
 *.swp
+.DS_store
 
 /public/coverage
 # Ignore all logfiles and tempfiles.

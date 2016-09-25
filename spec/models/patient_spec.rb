@@ -21,6 +21,15 @@ RSpec.describe Patient, type: :model do
     end
   end
 
+  describe "About scope" do
+    it "should return patients status=treatment" do
+      @patient1 = create(:patient)
+      @patient1 = create(:patient, id: 2, status: "treatment")
+      expect(Patient.on_treatment.size).to eql(1)
+      expect(Patient.on_treatment.first.id).to eql(2)
+    end
+  end
+
   describe "About Patient CRUD methods" do
     before do
       @patient1 = create(:patient)

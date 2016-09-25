@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordInvalid do |exception|
     flash[:alert] = exception.message
-    redirect_to :back
+    redirect_to_back
   end
 
   protected
@@ -27,5 +27,14 @@ class ApplicationController < ActionController::Base
     end
 
     I18n.locale = session[:locale] || I18n.default_locale
+  end
+
+  def redirect_to_back(default = root_path)
+    if request.env["HTTP_REFERER"].present? &&
+       request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+      redirect_to :back
+    else
+      redirect_to root_path
+    end
   end
 end
