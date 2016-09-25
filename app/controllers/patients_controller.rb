@@ -3,7 +3,9 @@ class PatientsController < BaseController
   before_action :find_patient, only: [:show, :destroy, :edit, :update]
 
   def index
-    @patients = Patient.not_deleted.includes(:location)
+    @patients = Patient.not_deleted.
+                        includes(:location).
+                        paginate(page: params[:page], per_page: 1)
   end
 
   def new

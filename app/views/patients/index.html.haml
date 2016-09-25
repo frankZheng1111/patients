@@ -5,3 +5,4 @@
 %table.table-bordered.table-striped.table-hover.patients-list.show-list
   = render partial: "patient_table_head"
   = render partial: "patient_table_body", locals: { patients: @patients }
+= will_paginate @patients
