@@ -34,6 +34,7 @@ gem 'twitter-bootstrap-rails'
 gem 'haml'
 gem 'rails-i18n'
 gem 'bootstrap-datepicker-rails'
+gem 'log4r'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

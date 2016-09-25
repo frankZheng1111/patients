@@ -12,6 +12,7 @@ class PatientsController < BaseController
 
   def create
     patient_attributes = patient_params
+    # 验证失败会捕获抛出异常，通过flash显示验证失败信息
     @patient = Patient.create!(patient_attributes)
     redirect_to patient_path(@patient)
   end
