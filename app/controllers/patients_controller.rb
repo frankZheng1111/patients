@@ -5,7 +5,7 @@ class PatientsController < BaseController
   def index
     @patients = Patient.not_deleted.
                         includes(:location).
-                        paginate(page: params[:page], per_page: 1)
+                        paginate(page: params[:page], per_page: 10)
   end
 
   def new
