@@ -17,9 +17,9 @@ RSpec.describe PatientsHelper, type: :helper do
       expect(can_view_detail?("patients", "show")).to eql(false)
     end
 
-    it "should to show delete button" do
+    it "should to show location link" do
       expect(can_delete_patient?("patients", "index")).to eql(true)
-      expect(can_delete_patient?("patients", "show")).to eql(true)
+      expect(can_delete_patient?("locations", "show")).to eql(false)
     end
   end
 end

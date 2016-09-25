@@ -3,7 +3,7 @@ class PatientsController < BaseController
   before_action :find_patient, only: [:show, :destroy, :edit, :update]
 
   def index
-    @patients = Patient.not_deleted
+    @patients = Patient.not_deleted.includes(:location)
   end
 
   def new

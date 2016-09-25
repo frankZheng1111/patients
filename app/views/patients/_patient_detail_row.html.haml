@@ -4,11 +4,15 @@
   %td= patient.age
   %td= t("patients.#{patient.gender}")
   %td= t("patients.#{patient.status}")
-  %td= link_to patient.location.try(:name), location_path(id: patient.location_id)
+  %td
+    - if patient.location
+      - if show_location_link?(params[:controller], params[:action])
+        = link_to patient.location.try(:name), location_path(id: patient.location_id)
+      -else
+        = patient.location.try(:name)
   %td= patient.viewed_count
   - if can_view_detail?(params[:controller], params[:action])
     %td= link_to t("actions.view_detail"), patient_path(patient)
   %td= link_to t("actions.edit"), edit_patient_path(patient), class: "btn btn-info"
-  - if can_delete_patient?(params[:controller], params[:action])
-    %td= button_to t("actions.delete"), patient_path(patient), method: :delete,
-      class: "btn btn-danger", data: { confirm: t("other.are_you_sure") }
+  %td= button_to t("actions.delete"), patient_path(patient), method: :delete,
+    class: "btn btn-danger", data: { confirm: t("other.are_you_sure") }
