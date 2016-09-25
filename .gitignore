@@ -13,6 +13,7 @@
 
 *.swp
 
+/public/coverage
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
