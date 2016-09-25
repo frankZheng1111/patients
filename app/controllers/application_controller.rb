@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   rescue_from Exception do |exception|
-    logger.error "Error time: #{Time.new}. Error message: #{exception}"
-    logger.error "Error message location: \n\t#{exception.backtrace.first}"
+    error_log_msg = "Error time: #{Time.new}. Error message: #{exception} \n\t"
+    exception.backtrace.each { |msg| error_log_msg += "#{msg}\n\t" }
+    logger.error error_log_msg
     throw exception
     # flash[:alert] = t("other.error_message")
     # redirect_to :back
