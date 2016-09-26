@@ -22,7 +22,7 @@ git clone https://github.com/frankZheng1111/patients.git
 ```bash
 bundle install
 bundle exec rake db:migrate
-rails s
+bundle exec rails s
 ```
 
 Then open [localhost:3000](<http://localhost:3000>) in your Browser
