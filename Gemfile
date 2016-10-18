@@ -30,6 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'paper_trail', '~> 4.0.0'
 gem 'twitter-bootstrap-rails'
 gem 'haml'
 gem 'rails-i18n'

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
+  prepend_before_action :set_locale, :info_for_paper_trail
 
   rescue_from Exception do |exception|
     error_log_msg = "Error time: #{Time.new}. Error message: #{exception} \n\t"
@@ -19,8 +20,16 @@ class ApplicationController < ActionController::Base
     redirect_to_back
   end
 
+  def info_for_paper_trail
+    puts "iiiiiiiiiiiiiiiiii"
+    PaperTrail.whodunnit = 'Andy Stewart'
+    { user_type: @test_type }
+  end
+
   protected
   def set_locale
+    puts "aaaaaaaaaaaaaaaaa"
+    @test_type = "test1"
     if params[:locale] && I18n.available_locales.include?(
       params[:locale].to_sym )
       session[:locale] = params[:locale]

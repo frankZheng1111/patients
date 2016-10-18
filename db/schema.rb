@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922045435) do
+ActiveRecord::Schema.define(version: 20161012042534) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "code"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 20160922045435) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "patient_versions", force: :cascade do |t|
+    t.string   "item_type",                     null: false
+    t.integer  "item_id",                       null: false
+    t.string   "event",                         null: false
+    t.string   "whodunnit"
+    t.string   "user_type"
+    t.text     "object",     limit: 1073741823
+    t.datetime "created_at"
+  end
+
+  add_index "patient_versions", ["item_type", "item_id"], name: "index_patient_versions_on_item_type_and_item_id"
 
   create_table "patients", force: :cascade do |t|
     t.string   "first_name",                    null: false

@@ -1,4 +1,5 @@
 class Patient < ActiveRecord::Base
+  has_paper_trail class_name: "PatientVersion"
   belongs_to :location
 
   MALE = "male"
